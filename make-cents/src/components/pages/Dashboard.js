@@ -4,7 +4,8 @@ import GraphCard from '../GraphCard';
 
 function Dashboard() {
   return (
-    <div className='container'>
+    <div>
+        <h1>Welcome, User</h1>
         <GraphCard />
     </div>
   )

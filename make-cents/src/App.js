@@ -14,7 +14,7 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className='container'>
       <Router>
         <LeftSidebar />
         <Routes>
@@ -29,7 +29,7 @@ function App() {
           <Route path='/logout' element={ <Logout /> } />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 
