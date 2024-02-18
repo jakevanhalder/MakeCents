@@ -103,9 +103,15 @@ svg {
 
 /*Utility classes*/
 
-.container{
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 20rem 1fr;
-    gap: 2rem;
-  }
+.app-container{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  gap: 2rem;
+}
+
+.even-columns{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
