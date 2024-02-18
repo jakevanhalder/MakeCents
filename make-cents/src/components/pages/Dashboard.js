@@ -6,8 +6,8 @@ import BudgetCard from '../BudgetCard';
 
 function Dashboard() {
   return (
-    <div>
-        <h1>Welcome, User</h1>
+    <div className='padding-block-600'>
+        <h1 className='fs-primary-heading'>Welcome, User</h1>
 
         <div className='even-columns'>
           <GraphCard />

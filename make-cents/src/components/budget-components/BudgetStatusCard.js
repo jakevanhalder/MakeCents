@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import BillStatusCardCss from './BillStatusCard.module.css';
+import BudgetStatusCardCss from './BudgetStatusCard.module.css';
 
-function BillStatusCard() {
+function BudgetStatusCard() {
 
-    const [status, setStatus] = useState('')
+  const [status, setStatus] = useState('')
 
-    return (
-        <div className={BillStatusCardCss.container}>
-            <div className={BillStatusCardCss.status}>
-                <h3 className={BillStatusCardCss.title}>Bill Status</h3>
+  return (
+    <div className={BudgetStatusCardCss.container}>
+            <div className={BudgetStatusCardCss.status}>
+                <h3 className={BudgetStatusCardCss.title}>Bill Status</h3>
                 {
                     status.length === 0 
                     ?
@@ -22,7 +22,7 @@ function BillStatusCard() {
                 }
             </div>          
         </div>
-    )
+  )
 }
 
-export default BillStatusCard
+export default BudgetStatusCard

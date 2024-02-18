@@ -14,7 +14,7 @@
     font-size: var(--fs-body);
 }
 
-.status{
+.budgetItems{
     margin: 0 auto;
     display: block;
     width: 450px;
