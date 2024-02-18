@@ -65,12 +65,12 @@ const profileSchema = new Schema({
 })
 
 const Users = mongoose.model('Users', userSchema, 'users')
-const Goals = mongoose.model('Goals', goalsSchema);
-const Bills = mongoose.model('Bills', billsSchema);
-const Investments = mongoose.model('Investments', investmentsSchema);
-const Profile = mongoose.model('Profile', profileSchema);
-const Expense = mongoose.model('Expense', expenseSchema);
-const Budget = mongoose.model('Budget', budgetSchema);
+const Goals = mongoose.model('Goals', goalsSchema, 'goals');
+const Bills = mongoose.model('Bills', billsSchema, 'bills');
+const Investments = mongoose.model('Investments', investmentsSchema, 'investments');
+const Profile = mongoose.model('Profile', profileSchema, 'profile');
+const Expense = mongoose.model('Expense', expenseSchema, 'expense');
+const Budget = mongoose.model('Budget', budgetSchema, 'budget');
 
 const mySchemas = {'Users':Users, 'Goals':Goals, 'Bills':Bills, 'Investments':Investments, 'Profile':Profile, 'Expense':Expense, 'Budget':Budget}
 

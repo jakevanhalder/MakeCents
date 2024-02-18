@@ -6,13 +6,13 @@
 }
 
 .vertical-line{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adjust the color and blur radius as needed */
-    height: 100%; /* Adjust height as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    height: 100%;
     margin-right: 10px;
 }
 
 .left-sidebar-nav h2{
-    font-size: var(--fs-primary-heading);   
+    font-size: var(--fs-secondary-heading);   
 }
 
 .left-sidebar-nav h2, li{
