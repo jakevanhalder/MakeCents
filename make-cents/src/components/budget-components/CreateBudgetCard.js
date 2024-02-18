@@ -29,7 +29,7 @@ function CreateBudgetCard() {
       <div className={CreateBudgetCardCss.container}>
           <form className={CreateBudgetCardCss.form}>
 
-              <h3 className={CreateBudgetCardCss.title}>Create Bill</h3>
+              <h3 className={CreateBudgetCardCss.title}>Create Budget</h3>
 
               <label>Name</label>
               <input type="text" id="name" name="name" value={name} onChange={ (e) => setName(e.target.value)}/>

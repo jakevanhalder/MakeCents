@@ -8,11 +8,11 @@ function BudgetStatusCard() {
   return (
     <div className={BudgetStatusCardCss.container}>
             <div className={BudgetStatusCardCss.status}>
-                <h3 className={BudgetStatusCardCss.title}>Bill Status</h3>
+                <h3 className={BudgetStatusCardCss.title}>Budget Status</h3>
                 {
                     status.length === 0 
                     ?
-                    <div><h3>No Bills</h3></div>
+                    <div><h3>No Current Budgets</h3></div>
                     :
                     status.map(status => (
                         <div>
