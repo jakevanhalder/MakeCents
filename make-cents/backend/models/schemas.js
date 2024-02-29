@@ -3,16 +3,17 @@ const Schema = mongoose.Schema
 
 // user schema
 const userSchema = new Schema({
-    name: {type:String},
-    email: {type:String},
+    name: {type:String, required:true, unique:true},
+    email: {type:String, required:true, unique:true},
+    password: {type:String, required:true},
     entryDate: {type:Date, default:Date.now}
 })
 
 // bills schema
 const billsSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    name: { type: String, required: true },
-    amount: { type: Number, required: true },
+    name: { type: String, required:true },
+    amount: { type: Number, required:true },
     dueDate: { type: Date },
     status: { type: String, enum: ['paid', 'unpaid', 'overdue'], default: 'unpaid' }
 })
@@ -20,8 +21,8 @@ const billsSchema = new Schema({
 // budget schema
 const budgetSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    category: { type: String, required: true },
-    amount: { type: Number, required: true },
+    category: { type: String, required:true },
+    amount: { type: Number, required:true },
     startDate: { type: Date },
     endDate: { type: Date }
 })
@@ -29,8 +30,8 @@ const budgetSchema = new Schema({
 // expenses schema
 const expenseSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    amount: { type: Number, required: true },
-    category: { type: String, required: true },
+    amount: { type: Number, required:true },
+    category: { type: String, required:true },
     description: { type: String },
     date: { type: Date, default: Date.now }
 })
@@ -38,8 +39,8 @@ const expenseSchema = new Schema({
 // investments schema
 const investmentsSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    name: { type: String, required: true },
-    amount: { type: Number, required: true },
+    name: { type: String, required:true },
+    amount: { type: Number, required:true },
     description: { type: String },
     date: { type: Date, default: Date.now }
 })
@@ -47,9 +48,9 @@ const investmentsSchema = new Schema({
 // goal schema
 const goalsSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
-    title: { type: String, required: true },
+    title: { type: String, required:true },
     description: { type: String },
-    targetAmount: { type: Number, required: true },
+    targetAmount: { type: Number, required:true },
     currentAmount: { type: Number, default: 0 },
     deadline: { type: Date }
 })
@@ -70,7 +71,7 @@ const Bills = mongoose.model('Bills', billsSchema, 'bills');
 const Investments = mongoose.model('Investments', investmentsSchema, 'investments');
 const Profile = mongoose.model('Profile', profileSchema, 'profile');
 const Expense = mongoose.model('Expense', expenseSchema, 'expense');
-const Budget = mongoose.model('Budget', budgetSchema, 'budget');
+const Budget = mongoose.model('Budget', budgetSchema, 'budgets');
 
 const mySchemas = {'Users':Users, 'Goals':Goals, 'Bills':Bills, 'Investments':Investments, 'Profile':Profile, 'Expense':Expense, 'Budget':Budget}
 
