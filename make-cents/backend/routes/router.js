@@ -1,20 +1,26 @@
 const express = require('express')
 const router = express.Router()
+const {
+  getAllUsers,
+  getUser,
+  createUser,
+  deleteUser,
+  updateUser
+} = require('../controllers/makeCentsController')
 
-router.post('/bills', async(req, res) => {
-    const {name, amount, dueDate} = req.body
+// GET all users
+router.get('/', getAllUsers)
 
-    const billsData = {name: name, amount: amount, dueDate: dueDate}
-    const newBill = new schemas.Bills(billsData)
-    const saveBill = await newBill.save(billsData)
-    if (saveBill){
-      res.send('Created new bill')  
-    }
-    else{
-        res.send('Failed to send message')
-    }
+// GET a single user
+router.get('/:id', getUser)
 
-    res.end()
-})
+// POST a new user
+router.post('/', createUser)
+
+// DELETE a user
+router.delete('/:id', deleteUser)
+
+// UPDATE a user
+router.patch('/:id', updateUser)
 
 module.exports = router
