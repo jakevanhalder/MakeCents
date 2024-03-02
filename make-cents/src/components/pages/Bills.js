@@ -8,7 +8,7 @@ function Bills() {
 
     useEffect(() => {
         const fetchBills = async () => {
-            const response = await fetch('http://localhost:4000/api/router/bills')
+            const response = await fetch('api/router/bills')
             const json = await response.json()
 
             if (response.ok){
@@ -23,7 +23,9 @@ function Bills() {
     <div className='padding-block-600'>
         <h1 className='fs-primary-heading'>Bills</h1>
         <div className='even-columns'>
-          <BillStatusCard bill={bills} />
+        {bills && bills.map((bill) => (
+          <BillStatusCard key={bill._id} bill={bill} />         
+        ))}
           
           <CreateBillCard />
         </div>
