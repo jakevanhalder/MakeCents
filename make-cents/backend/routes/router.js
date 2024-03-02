@@ -5,22 +5,42 @@ const {
   getUser,
   createUser,
   deleteUser,
-  updateUser
+  updateUser,
+  getAllBills,
+  getBill,
+  createBill,
+  deleteBill,
+  updateBill
 } = require('../controllers/makeCentsController')
 
 // GET all users
-router.get('/', getAllUsers)
+router.get('/users', getAllUsers)
 
 // GET a single user
-router.get('/:id', getUser)
+router.get('/users/:id', getUser)
 
 // POST a new user
-router.post('/', createUser)
+router.post('/users', createUser)
 
 // DELETE a user
-router.delete('/:id', deleteUser)
+router.delete('/users/:id', deleteUser)
 
 // UPDATE a user
-router.patch('/:id', updateUser)
+router.patch('/users/:id', updateUser)
+
+// GET all bills
+router.get('/bills', getAllBills)
+
+// GET a single bill
+router.get('/bills/:id', getBill)
+
+// POST a new bill
+router.post('/bills', createBill)
+
+// DELETE a bill
+router.delete('/bills/:id', deleteBill)
+
+// UPDATE a bill
+router.patch('/bills/:id', updateBill)
 
 module.exports = router

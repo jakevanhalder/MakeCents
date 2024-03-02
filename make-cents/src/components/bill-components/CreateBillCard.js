@@ -41,7 +41,7 @@ function CreateBillCard() {
         .then(res => setError(<p className="success">{res.data}</p>))
     }*/
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         if(!name){

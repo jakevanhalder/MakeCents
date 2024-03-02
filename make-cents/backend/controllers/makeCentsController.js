@@ -77,10 +77,92 @@ const updateUser = async (req, res) => {
     res.status(200).json(user)
 }
 
+// get all bills
+const getAllBills = async (req, res) => {
+    const bills = await schemas.Bills.find({}).sort({createdAt: -1})
+
+    res.status(200).json(bills)
+}
+
+// get a single user
+const getBill = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    const bills = await schemas.Bills.findById(id)
+
+    if (!bills)
+    {
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    res.status(200).json(bills)
+}
+
+// create new user
+const createBill = async (req, res) => {
+    const {name, amount, dueDate} = req.body
+
+    try {
+        const bills = await schemas.Bills.create({name, amount, dueDate})
+        res.status(200).json(bills)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+
+}
+
+// delete a user
+const deleteBill = async (req, res) => {
+    const { id } = req.params
+    
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    const bills = await schemas.Bills.findOneAndDelete({_id: id})
+
+    if (!bills)
+    {
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    res.status(200).json(bills)
+}
+
+// update a user
+const updateBill = async (req, res) => {
+    const { id } = req.params
+    
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    const bills = await schemas.Bills.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+
+    if (!bills)
+    {
+        return res.status(404).json({error: 'No such bill exists'})
+    }
+
+    res.status(200).json(bills)
+}
+
+
 module.exports = {
     getAllUsers,
     getUser,
     createUser,
     deleteUser,
-    updateUser
+    updateUser,
+    getAllBills,
+    getBill,
+    createBill,
+    deleteBill,
+    updateBill
 }
