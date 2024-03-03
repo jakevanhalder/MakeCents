@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr repeat(1, auto) 1fr;
+    padding: 10px;
+    margin: 15px 0px 15px;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.left {
+    margin-right: auto;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
+    grid-column-start: 2;
+}
+
+.center p{
+    margin-right: 15px;
+}
+
+.right {
+    margin-left: auto;
+}

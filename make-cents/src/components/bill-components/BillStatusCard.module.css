@@ -1,25 +1,35 @@
-.container{
-    --content-padding: 1.5rem;
-    --content-spacing: 0.75rem;
-
+.container {
     margin: 1.5rem;
     display: grid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 0.5rem;
-    overflow: hidden;
     line-height: 1.7;
 }
 
-.title{
+.title {
     font-size: var(--fs-body);
 }
 
-.status{
+.cardItems {
+    overflow: auto scroll;
+    max-height: 450px;
+}
+
+.status {
     margin: 0 auto;
-    display: block;
     width: 450px;
     background-color: var(--clr-primary-100);
     padding: 40px;
-    border-radius: 20px;
     opacity: 75%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.cardItems::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.cardItems {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
