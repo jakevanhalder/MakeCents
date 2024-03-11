@@ -5,13 +5,13 @@ function CreateBillCard() {
 
     const [name, setName] = useState('')
     const [amount, setAmount] = useState('')
-    const [date, setDate] = useState('')
+    const[date, setDate] = useState(new Date())
     const [error, setError] = useState('')
     
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        
         if(!name){
             setError(<p className={CreateBillCardCss.required}>Name is empty. Please type a name.</p>)
         }
@@ -22,7 +22,10 @@ function CreateBillCard() {
             setError(<p className={CreateBillCardCss.required}>Date is empty. Please select a date.</p>)
         }
         else{
+            
             const bill = {name, amount, date}
+
+            console.log(date)
 
             const response = await fetch('/api/router/bills', {
                 method: 'POST',
@@ -42,7 +45,7 @@ function CreateBillCard() {
             {
                 setName('')
                 setAmount('')
-                setDate('')
+                setDate(new Date())
                 setError('')
                 console.log('New bill created', json)
             }

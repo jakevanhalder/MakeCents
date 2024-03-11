@@ -14,7 +14,7 @@ const billsSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     name: { type: String, required:true },
     amount: { type: Number, required:true },
-    dueDate: { type: Date },
+    date: { type: Date, required:true },
     status: { type: String, enum: ['paid', 'unpaid', 'overdue'], default: 'unpaid' }
 })
 

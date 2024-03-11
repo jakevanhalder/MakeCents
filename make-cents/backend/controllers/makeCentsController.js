@@ -104,10 +104,10 @@ const getBill = async (req, res) => {
 
 // create new user
 const createBill = async (req, res) => {
-    const {name, amount, dueDate} = req.body
+    const {name, amount, date} = req.body
 
     try {
-        const bills = await schemas.Bills.create({name, amount, dueDate})
+        const bills = await schemas.Bills.create({name, amount, date})
         res.status(200).json(bills)
     } catch (error) {
         res.status(400).json({error: error.message})
