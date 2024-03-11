@@ -1,14 +1,14 @@
 import React from 'react';
 import LeftSidebar from './components/LeftSidebar';
-import Dashboard from './components/pages/Dashboard';
-import Bills from './components/pages/Bills';
-import Budgeting from './components/pages/Budgeting';
-import Expenses from './components/pages/Expenses';
-import Investments from './components/pages/Investments';
-import MyGoals from './components/pages/MyGoals';
-import Profile from './components/pages/Profile';
-import Settings from './components/pages/Settings';
-import Logout from './components/pages/Logout';
+import Dashboard from './pages/Dashboard';
+import Bills from './pages/Bills';
+import Budgeting from './pages/Budgeting';
+import Expenses from './pages/Expenses';
+import Investments from './pages/Investments';
+import MyGoals from './pages/MyGoals';
+import Profile from './pages/Profile';
+import Settings from './pages/Settings';
+import Logout from './pages/Logout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 

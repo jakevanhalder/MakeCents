@@ -1,8 +1,8 @@
 import React from 'react';
-import GraphCard from '../GraphCard';
-import UpcomingCard from '../UpcomingCard';
-import HowToCard from '../HowToCard';
-import BudgetCard from '../BudgetCard';
+import GraphCard from '../components/GraphCard';
+import UpcomingCard from '../components/UpcomingCard';
+import HowToCard from '../components/HowToCard';
+import BudgetCard from '../components/BudgetCard';
 
 function Dashboard() {
   return (

@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import BillStatusCardCss from './BillStatusCard.module.css';
 import BillStatusCardItem from './BillStatusCardItem';
+import { useBillContext } from '../../hooks/useBillsContext';
 
 function BillStatusCard() {
-    const [bills, setBills] = useState(null)
+    const {bills, dispatch} = useBillContext()
 
     useEffect(() => {
         const fetchBills = async () => {
@@ -11,12 +12,12 @@ function BillStatusCard() {
             const json = await response.json()
 
             if (response.ok) {
-                setBills(json)
+                dispatch({type: 'SET_BILLS', payload: json})
             }
         }
 
         fetchBills()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className={BillStatusCardCss.container}>

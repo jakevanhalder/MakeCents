@@ -1,7 +1,7 @@
 import React from 'react'
-import BudgetStatusCard from '../budget-components/BudgetStatusCard';
-import CreateBudgetCard from '../budget-components/CreateBudgetCard';
-import BudgetPastActivity from '../budget-components/BudgetPastActivity';
+import BudgetStatusCard from '../components/budget-components/BudgetStatusCard';
+import CreateBudgetCard from '../components/budget-components/CreateBudgetCard';
+import BudgetPastActivity from '../components/budget-components/BudgetPastActivity';
 
 function Budgeting() {
   return (

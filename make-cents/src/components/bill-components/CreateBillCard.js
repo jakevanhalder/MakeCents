@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import CreateBillCardCss from './CreateBillCard.module.css';
+import { useBillContext } from '../../hooks/useBillsContext';
 
 function CreateBillCard() {
 
+    const { dispatch } = useBillContext()
     const [name, setName] = useState('')
     const [amount, setAmount] = useState('')
     const[date, setDate] = useState(new Date())
@@ -48,6 +50,7 @@ function CreateBillCard() {
                 setDate(new Date())
                 setError('')
                 console.log('New bill created', json)
+                dispatch({type: 'CREATE_BILL', payload: json})
             }
         }
     }

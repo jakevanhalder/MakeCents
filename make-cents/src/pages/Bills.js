@@ -1,7 +1,7 @@
 import React from 'react'
-import BillStatusCard from '../bill-components/BillStatusCard';
-import CreateBillCard from '../bill-components/CreateBillCard';
-import BillPastActivity from '../bill-components/BillPastActivity';
+import BillStatusCard from '../components/bill-components/BillStatusCard';
+import CreateBillCard from '../components/bill-components/CreateBillCard';
+import BillPastActivity from '../components/bill-components/BillPastActivity';
 
 function Bills() {
   return (
