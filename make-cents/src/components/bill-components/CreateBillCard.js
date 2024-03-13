@@ -27,8 +27,6 @@ function CreateBillCard() {
             
             const bill = {name, amount, date}
 
-            console.log(date)
-
             const response = await fetch('/api/router/bills', {
                 method: 'POST',
                 body: JSON.stringify(bill),

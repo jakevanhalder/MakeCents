@@ -84,7 +84,7 @@ const getAllBills = async (req, res) => {
     res.status(200).json(bills)
 }
 
-// get a single user
+// get a single bill
 const getBill = async (req, res) => {
     const { id } = req.params
 
@@ -102,7 +102,7 @@ const getBill = async (req, res) => {
     res.status(200).json(bills)
 }
 
-// create new user
+// create new bill
 const createBill = async (req, res) => {
     const {name, amount, date} = req.body
 
@@ -115,7 +115,7 @@ const createBill = async (req, res) => {
 
 }
 
-// delete a user
+// delete a bill
 const deleteBill = async (req, res) => {
     const { id } = req.params
     
@@ -133,7 +133,7 @@ const deleteBill = async (req, res) => {
     res.status(200).json(bills)
 }
 
-// update a user
+// update a bill
 const updateBill = async (req, res) => {
     const { id } = req.params
     

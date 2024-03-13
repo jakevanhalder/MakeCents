@@ -1,23 +1,33 @@
+import { useState } from 'react';
 import BillStatusCardItemCss from './BillStatusCardItem.module.css';
-import { useBillContext } from '../../hooks/useBillsContext';
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 function BillStatusCard({ bill }) {
-    const { dispatch } = useBillContext()
+    const [status, setNewStatus] = useState(bill.status)
 
-    const handleStatus = async () => {
-        const response = await fetch('api/router/bills' + bill._id, {
-            method: 'PATCH'
+    const handleStatus = async (e) => {
+        e.preventDefault()
+
+        const newStatus = { status }
+
+        const response = await fetch('/api/router/bills/' + bill._id, {
+            method: 'PATCH',
+            body: JSON.stringify(newStatus),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
 
         const json = await response.json()
 
-        if(response.ok) {
-            dispatch({type: 'UPDATE_BILL', payload: json})
+        if (response.ok) {
+            setNewStatus(bill.status)
+            console.log('Bill status updated', json)
         }
     }
+
 
     return (
         <div className={BillStatusCardItemCss.container}>
@@ -32,14 +42,12 @@ function BillStatusCard({ bill }) {
 
             <div className={BillStatusCardItemCss.right}>
                 <form>
-                    <select>
-                        <option value="unpaid" onClick={handleStatus}>Unpaid</option>
-                        <option value="paid" onClick={handleStatus}>Paid</option>
-                        <option value="overdue" onClick={handleStatus}>Overdue</option>
+                    <select onChange={handleStatus} value={status}>
+                        <option value="Unpaid" onChange={ (e) => setNewStatus(e.target.value)}>Unpaid</option>
+                        <option value="Paid" onChange={ (e) => setNewStatus(e.target.value)}>Paid</option>
                     </select>
 
                 </form>
-
             </div>
         </div>
     )
