@@ -15,7 +15,7 @@ const billsSchema = new Schema({
     name: { type: String, required:true },
     amount: { type: Number, required:true },
     date: { type: Date, required:true },
-    status: { type: String, enum: ['paid', 'unpaid', 'overdue'], default: 'unpaid' }
+    status: { type: String, default: 'unpaid' }
 })
 
 // budget schema

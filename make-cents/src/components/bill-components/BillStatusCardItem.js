@@ -5,16 +5,16 @@ import BillStatusCardItemCss from './BillStatusCardItem.module.css';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 function BillStatusCard({ bill }) {
-    const [status, setNewStatus] = useState(bill.status)
+    const [status, setNewStatus] = useState('')
 
     const handleStatus = async (e) => {
         e.preventDefault()
 
-        const newStatus = { status }
+        const newStatus = e.target.value
 
         const response = await fetch('/api/router/bills/' + bill._id, {
             method: 'PATCH',
-            body: JSON.stringify(newStatus),
+            body: JSON.stringify({status: newStatus}),
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -23,7 +23,7 @@ function BillStatusCard({ bill }) {
         const json = await response.json()
 
         if (response.ok) {
-            setNewStatus(bill.status)
+            setNewStatus('')
             console.log('Bill status updated', json)
         }
     }
@@ -43,8 +43,8 @@ function BillStatusCard({ bill }) {
             <div className={BillStatusCardItemCss.right}>
                 <form>
                     <select onChange={handleStatus} value={status}>
-                        <option value="Unpaid" onChange={ (e) => setNewStatus(e.target.value)}>Unpaid</option>
-                        <option value="Paid" onChange={ (e) => setNewStatus(e.target.value)}>Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                        <option value="Paid">Paid</option>
                     </select>
 
                 </form>
